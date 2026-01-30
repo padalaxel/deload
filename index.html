@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <title>Workout Card</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <div class="title">Elbow-Safe Plan</div>
+        <div class="sub">Check sets • Rest timer • Auto-save</div>
+      </div>
+
+      <div class="controls">
+        <select id="daySelect" aria-label="Select workout day"></select>
+        <button class="btn ghost" id="newSessionBtn" title="Clear checkmarks for current day">New session</button>
+        <button class="btn danger" id="clearAllBtn" title="Clear all saved data">Clear all</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card">
+        <div class="cardHead">
+          <div>
+            <div class="cardTitle" id="dayTitle">Day</div>
+            <div class="cardMeta" id="dayMeta"></div>
+          </div>
+
+          <div class="progress">
+            <div class="pct" id="pct">0%</div>
+            <div class="bar"><div class="fill" id="fill"></div></div>
+            <div class="small" id="count">0 / 0 sets</div>
+          </div>
+        </div>
+
+        <div class="warmup" id="warmup"></div>
+
+        <div class="list" id="workoutList"></div>
+      </section>
+
+      <aside class="timer">
+        <div class="timerCard">
+          <div class="timerTitle">Rest Timer</div>
+          <div class="time" id="timeDisplay">01:30</div>
+
+          <div class="timerBtns">
+            <button class="btn" id="startPauseBtn">Start</button>
+            <button class="btn ghost" id="resetBtn">Reset</button>
+          </div>
+
+          <div class="presets">
+            <button class="chip" data-seconds="60">1:00</button>
+            <button class="chip" data-seconds="90">1:30</button>
+            <button class="chip" data-seconds="120">2:00</button>
+            <button class="chip" data-seconds="180">3:00</button>
+          </div>
+
+          <label class="toggle">
+            <input type="checkbox" id="autoStartTimer" checked />
+            <span>Auto-start timer on set check</span>
+          </label>
+
+          <label class="toggle">
+            <input type="checkbox" id="soundToggle" checked />
+            <span>Sound when done</span>
+          </label>
+
+          <div class="hint">
+            Tip: Add to Home Screen for an app-like experience.
+          </div>
+        </div>
+
+        <div class="rules">
+          <div class="rulesTitle">Rules</div>
+          <ul>
+            <li>No straps • No grinding</li>
+            <li>Leave 2–3 reps in reserve</li>
+            <li>Pain ≤ 3/10 • Progress only if pain-free</li>
+          </ul>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span id="savedStatus">Saved</span>
+    </footer>
+  </div>
+
+  <audio id="beep">
+    <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=" type="audio/wav">
+  </audio>
+
+  <script src="app.js"></script>
+</body>
+</html>
