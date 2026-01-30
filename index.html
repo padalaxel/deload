@@ -95,5 +95,39 @@
   </audio>
 
   <script src="app.js"></script>
+    <!-- TIMER MODAL -->
+  <div class="modal" id="timerModal" aria-hidden="true">
+    <div class="modalBackdrop" id="modalBackdrop"></div>
+
+    <div class="modalPanel" role="dialog" aria-modal="true" aria-labelledby="timerModalTitle">
+      <div class="modalHead">
+        <div>
+          <div class="modalTitle" id="timerModalTitle">Rest Timer</div>
+          <div class="modalSub" id="modalContext">Next set when it hits 0.</div>
+        </div>
+        <button class="iconBtn" id="closeModalBtn" aria-label="Close timer">✕</button>
+      </div>
+
+      <div class="modalTime" id="modalTimeDisplay">01:30</div>
+
+      <div class="modalBtns">
+        <button class="btn" id="modalStartPauseBtn">Start</button>
+        <button class="btn ghost" id="modalResetBtn">Reset</button>
+      </div>
+
+      <div class="presets modalPresets">
+        <button class="chip" data-seconds="60">1:00</button>
+        <button class="chip" data-seconds="90">1:30</button>
+        <button class="chip" data-seconds="120">2:00</button>
+        <button class="chip" data-seconds="180">3:00</button>
+      </div>
+
+      <label class="toggle">
+        <input type="checkbox" id="modalSoundToggle" checked />
+        <span>Sound when done</span>
+      </label>
+    </div>
+  </div>
+
 </body>
 </html>
