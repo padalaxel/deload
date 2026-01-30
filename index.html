@@ -61,7 +61,7 @@
 
           <label class="toggle">
             <input type="checkbox" id="autoStartTimer" checked />
-            <span>Auto-start timer on set check</span>
+            <span>Pop timer + start on set check</span>
           </label>
 
           <label class="toggle">
@@ -90,12 +90,7 @@
     </footer>
   </div>
 
-  <audio id="beep">
-    <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=" type="audio/wav">
-  </audio>
-
-  <script src="app.js"></script>
-    <!-- TIMER MODAL -->
+  <!-- TIMER MODAL -->
   <div class="modal" id="timerModal" aria-hidden="true">
     <div class="modalBackdrop" id="modalBackdrop"></div>
 
@@ -129,5 +124,10 @@
     </div>
   </div>
 
+  <audio id="beep">
+    <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YQAAAAA=" type="audio/wav">
+  </audio>
+
+  <script src="app.js"></script>
 </body>
 </html>

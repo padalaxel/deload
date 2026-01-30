@@ -121,7 +121,6 @@ function loadState() {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return { selectedDay: DATA.days[0].id, checks: {} };
     const parsed = JSON.parse(raw);
-    // basic shape guard
     if (!parsed.selectedDay || !parsed.checks) return { selectedDay: DATA.days[0].id, checks: {} };
     return parsed;
   } catch {
@@ -214,7 +213,6 @@ function stopTimer(finished = false) {
   updateTimerDisplays();
 
   if (finished) {
-    // beep
     const soundOn = (els.modalSound?.checked ?? els.sound?.checked) === true;
     if (soundOn && els.beep) {
       try {
@@ -223,10 +221,7 @@ function stopTimer(finished = false) {
       } catch {}
     }
 
-    // optional: auto-close modal when finished
-    // closeTimerModal();
-
-    // reset for next interval
+    // Reset for next rest interval
     timer.remaining = timer.total;
     updateTimerDisplays();
   }
@@ -374,18 +369,16 @@ function clearAll() {
 
 /* ========= UI bindings ========= */
 function bindUI() {
-  // day selector
   els.daySelect?.addEventListener("change", () => {
     state.selectedDay = els.daySelect.value;
     saveState();
     renderWorkout();
   });
 
-  // sidebar timer
   els.startPause?.addEventListener("click", toggleStartPause);
   els.reset?.addEventListener("click", resetTimer);
 
-  // preset chips (works for both sidebar + modal because same class)
+  // preset chips (sidebar + modal)
   document.querySelectorAll(".chip").forEach((btn) => {
     btn.addEventListener("click", () => {
       const sec = Number(btn.dataset.seconds);
@@ -393,14 +386,12 @@ function bindUI() {
     });
   });
 
-  // session buttons
   els.newSession?.addEventListener("click", clearCurrentDay);
   els.clearAll?.addEventListener("click", clearAll);
 
   // modal controls
   els.modalBackdrop?.addEventListener("click", closeTimerModal);
   els.closeModalBtn?.addEventListener("click", closeTimerModal);
-
   els.modalStartPause?.addEventListener("click", toggleStartPause);
   els.modalReset?.addEventListener("click", resetTimer);
 
